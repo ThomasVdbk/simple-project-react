@@ -38,9 +38,20 @@ function App() {
   };
 
   // ************affichage (render)************
+  // Exemple de réusabilité du composant Fruit avec handleDelete et afficherFruitPrefere
   return (
     <div>
-      <h1>Liste de fruits</h1>
+      <h1>Liste de fruits et bouton suppression</h1>
+      <ul>
+        {fruits.map((fruit) => (
+          <Fruit
+            fruitInfo={fruit}
+            onClick={() => handleDelete(fruit.id)}
+            key={fruit.id}
+          />
+        ))}
+      </ul>
+      <h1>Liste de fruits et bouton alert fruit préféré</h1>
       <ul>
         {fruits.map((fruit) => (
           <Fruit
